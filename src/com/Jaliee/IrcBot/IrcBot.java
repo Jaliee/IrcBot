@@ -1,13 +1,13 @@
-package com.Jaliee.twitchbot;
+package com.Jaliee.IrcBot;
 
 import org.jibble.pircbot.*;
 
 /**
  * Created by Jocke on 2017-09-15.
  */
-public class TwitchBot extends PircBot {
+public class IrcBot extends PircBot {
 
-    public TwitchBot() {
+    public IrcBot() {
         this.setName("JalieeBot");
     }
 

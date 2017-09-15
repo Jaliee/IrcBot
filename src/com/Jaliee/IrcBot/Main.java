@@ -1,4 +1,4 @@
-package com.Jaliee.twitchbot;
+package com.Jaliee.IrcBot;
 
 
 import org.jibble.pircbot.IrcException;
@@ -27,7 +27,7 @@ public class Main {
 
         if (server != null && !channels.isEmpty()) {
             // Start bot.
-            TwitchBot bot = new TwitchBot();
+            IrcBot bot = new IrcBot();
 
             // Enable debugging.
             bot.setVerbose(true);
