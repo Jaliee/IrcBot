@@ -50,4 +50,4 @@ fabric.properties
 
 # Ignore config since it might contain sensitive information
 server.cfg
-channels.txt
+channels.cfg
