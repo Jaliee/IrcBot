@@ -6,6 +6,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Jocke on 2017-09-15.
@@ -29,8 +31,10 @@ public class IrcBot extends PircBot {
                 setName(name);
                 setLogin(name);
                 connect(server, port, password);
+                System.out.println("Connection to server successful.");
                 for (String c : channels) {
                     joinChannel(c);
+                    System.out.println("Joined channel " + c);
                 }
             } catch (IOException ioe) {
                 System.out.println("Connection failed: " + ioe);
@@ -45,14 +49,36 @@ public class IrcBot extends PircBot {
 
     protected void onMessage(String channel, String sender, String login, String hostname, String message) {
 
-        String lcMessage = message.toLowerCase();
-        switch (lcMessage) {
-            case "time":
-                String time = new java.util.Date().toString();
-                sendMessage(channel, sender + ": The time is now " + time);
-                break;
+        if (sender.equals("jaliee")) {
+            String lcMessage = message.toLowerCase();
+            switch (lcMessage) {
+                case "time":
+                    String time = new java.util.Date().toString();
+                    sendMessage(channel, sender + ": The time is now " + time);
+                    break;
+                case "hello jalieebot":
+                    sendMessage(channel, "Hello!");
+                    break;
+                case "goodbye jalieebot":
+                    sendMessage(channel, "Goodbye!");
+                    disconnect();
+                    System.exit(0);
+                    break;
 
+            }
+            if (lcMessage.contains("join")) {
+                Pattern p = Pattern.compile("#\\w*");
+                Matcher m = p.matcher(message);
+                String matchedChan = null;
+                while (m.find()) {
+                    matchedChan = m.group();
+                    joinChannel(matchedChan);
+                    System.out.println("Joined: " + matchedChan);
+                }
+
+            }
         }
+
     }
 
     protected void onPrivateMessage(String sender, String login, String hostname, String message) {
@@ -61,6 +87,10 @@ public class IrcBot extends PircBot {
                 disconnect();
                 System.exit(0);
         }
+    }
+
+    protected void onJoin(String channel, String sender, String login, String hostname) {
+        //sendMessage(channel, "Hello");
     }
 
     private void loadServerConfig(String file) {

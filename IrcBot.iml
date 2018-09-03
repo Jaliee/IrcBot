@@ -22,5 +22,6 @@
         <jarDirectory url="file://$MODULE_DIR$/../../../jar/pircbot-1.5.0" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="pircbot" level="project" />
   </component>
 </module>

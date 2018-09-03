@@ -8,3 +8,22 @@ This software product is OSI Certified Open Source Software, available under the
 
 Purchase a commercial license for this software."
 
+Config files + exampels:
+
+server.cfg
+
+server=irc.chat.twitch.tv
+password=
+name=TwitchBot
+port=6667
+
+
+channels.cfg
+
+#twitchpresents
+#awesomestreamer123
+...
+#myownchannel
+
+
+commands.cfg
