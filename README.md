@@ -8,9 +8,9 @@ This software product is OSI Certified Open Source Software, available under the
 
 Purchase a commercial license for this software."
 
-Config files + exampels:
+## Config files + examples:
 
-server.cfg
+### server.cfg
 
 server=irc.chat.twitch.tv
 password=
@@ -18,14 +18,13 @@ name=TwitchBot
 port=6667
 owner=yourname
 
-channels.cfg
+### channels.cfg
 
 #twitchpresents
 #awesomestreamer123
 ...
 #myownchannel
 
-
-commands.cfg
+### commands.cfg
 
 not yet implemented
