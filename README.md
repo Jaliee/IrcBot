@@ -12,11 +12,11 @@ Purchase a commercial license for this software."
 
 ### server.cfg
 
-server=irc.chat.twitch.tv
-password=
-name=TwitchBot
-port=6667
-owner=yourname
+server=irc.chat.twitch.tv \n
+password= \n
+name=TwitchBot \n
+port=6667 \n
+owner=yourname \n
 
 ### channels.cfg
 
