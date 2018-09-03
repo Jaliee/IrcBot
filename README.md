@@ -16,7 +16,7 @@ server=irc.chat.twitch.tv
 password=
 name=TwitchBot
 port=6667
-
+owner=yourname
 
 channels.cfg
 
@@ -27,3 +27,5 @@ channels.cfg
 
 
 commands.cfg
+
+not yet implemented

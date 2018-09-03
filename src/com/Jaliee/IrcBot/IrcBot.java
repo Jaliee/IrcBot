@@ -18,6 +18,7 @@ public class IrcBot extends PircBot {
     private ArrayList<String> channels;
     private String password;
     private String name;
+    private String owner;
     private int port;
 
     public IrcBot(String serverConfig, String channelsFile) {
@@ -49,7 +50,7 @@ public class IrcBot extends PircBot {
 
     protected void onMessage(String channel, String sender, String login, String hostname, String message) {
 
-        if (sender.equals("jaliee")) {
+        if (sender.equals(owner)) {
             String lcMessage = message.toLowerCase();
             switch (lcMessage) {
                 case "time":
@@ -81,6 +82,7 @@ public class IrcBot extends PircBot {
 
     }
 
+
     protected void onPrivateMessage(String sender, String login, String hostname, String message) {
         switch (message) {
             case "disconnect":
@@ -104,6 +106,7 @@ public class IrcBot extends PircBot {
             password = cfg.getProperty("password");
             name = cfg.getProperty("name");
             port = Integer.parseInt(cfg.getProperty("port"));
+            owner = cfg.getProperty("owner");
         } catch (IOException e) {
             System.out.println("Error reading file: " + e);
         } finally {
