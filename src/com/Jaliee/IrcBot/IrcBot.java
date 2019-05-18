@@ -65,6 +65,8 @@ public class IrcBot extends PircBot {
                     disconnect();
                     System.exit(0);
                     break;
+                case "attend me squire":
+                    sendMessage(channel, "!play");
 
             }
             if (lcMessage.contains("join")) {
